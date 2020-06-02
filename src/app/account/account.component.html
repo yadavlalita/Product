@@ -1,0 +1,97 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Enter Account Name</label>
+        <input type="text" class="form-control" 
+          formControlName="AccountName" 
+          #AccountName />
+      </div>
+      <div *ngIf="angForm.controls['AccountName'].invalid && (angForm.controls['AccountName'].dirty || angForm.controls['AccountName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['AccountName'].errors.required">
+          AccountName is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"> Account type
+        </label>
+        <select name="Type"
+        ng-model="data.Type" class="form-control" 
+        formControlName="Type" 
+        #Type>
+      <option value="Customer">Customer
+      </option>
+     
+      <option value="Distributor">Distributor</option>
+      <option value="Staff">Staff</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Type'].invalid && (angForm.controls['Type'].dirty || angForm.controls['Type'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Type'].errors.required">
+          Type is required. 
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Address</label>
+        <input type="text" class="form-control" 
+          formControlName="Address" 
+          #Address />
+      </div>
+      <div *ngIf="angForm.controls['Address'].invalid && (angForm.controls['Address'].dirty || angForm.controls['Address'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Address'].errors.required">
+          Address is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">ContactPerson</label>
+        <input type="text" class="form-control" 
+          formControlName="ContactPerson" 
+          #ContactPerson />
+      </div>
+      <div *ngIf="angForm.controls['ContactPerson'].invalid && (angForm.controls['ContactPerson'].dirty || angForm.controls['ContactPerson'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ContactPerson'].errors.required">
+          ContactPerson is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">ContactNumber</label>
+        <input type="text" class="form-control" 
+          formControlName="ContactNumber" 
+          #ContactNumber />
+      </div>
+      <div *ngIf="angForm.controls['ContactNumber'].invalid && (angForm.controls['ContactNumber'].dirty || angForm.controls['ContactNumber'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ContactNumber'].errors.required">
+          ContactNumber is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">GST_Tin_no</label>
+        <input type="text" class="form-control" 
+          formControlName="GST_Tin_no" 
+          #GST_Tin_no />
+      </div>
+      <div *ngIf="angForm.controls['GST_Tin_no'].invalid && (angForm.controls['GST_Tin_no'].dirty || angForm.controls['GST_Tin_no'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['GST_Tin_no'].errors.required">
+          GST_Tin_no is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Balance</label>
+        <input type="text" class="form-control" 
+          formControlName="Balance" 
+          #Balance />
+      </div>
+      <div *ngIf="angForm.controls['Balance'].invalid && (angForm.controls['Balance'].dirty || angForm.controls['Balance'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Balance'].errors.required">
+          Balance is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "addacc(AccountName.value,Type.value,Address.value,ContactPerson.value,ContactNumber.value,GST_Tin_no.value,Balance.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Done
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4"> Select Challan/Bill
+        </label>
+        <select name="Challan_Bill"
+        ng-model="data.Challan_Bill" class="form-control" 
+        formControlName="Challan_Bill" 
+        #Challan_Bill>
+      <option value="Challan">Challan
+      </option>
+     
+      <option value="Bill">Bill</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Challan_Bill'].invalid && (angForm.controls['Challan_Bill'].dirty || angForm.controls['Challan_Bill'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Challan_Bill'].errors.required">
+          Challan_Bill is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Select Distributors</label>
+        <select name="Distributors"
+        ng-model="data.Distributors" class="form-control" 
+        formControlName="Distributors" 
+        #Distributors>
+      <option value="ABC">ABC
+      </option>
+      <option value="PQR">PQR</option>
+      <option value="XYZ">XYZ</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Distributors'].invalid && (angForm.controls['Distributors'].dirty || angForm.controls['Distributors'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Distributors'].errors.required">
+          distributor is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Balance</label>
+        <input type="text" class="form-control" 
+          formControlName="Balance" 
+          #Balance />
+      </div>
+      <div *ngIf="angForm.controls['Balance'].invalid && (angForm.controls['Balance'].dirty || angForm.controls['Balance'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Balance'].errors.required">
+          Balance is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">  Payment Method
+        </label>
+        <select name="Payments"
+        ng-model="data.Payments" class="form-control" 
+        formControlName="Payments" 
+        #Payments>
+      <option value="Debit or Credit">Debit or Credit
+      </option>
+     
+      <option value="PayTm">PayTm</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Payments'].invalid && (angForm.controls['Payments'].dirty || angForm.controls['Payments'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Payments'].errors.required">
+          Payment is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">BillStatus</label>
+        <input type="text" class="form-control" 
+          formControlName="BillStatus" 
+          #BillStatus />
+      </div>
+      <div *ngIf="angForm.controls['BillStatus'].invalid && (angForm.controls['BillStatus'].dirty || angForm.controls['BillStatus'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['BillStatus'].errors.required">
+          BillStatus is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = " addpayment(Challan_Bill.value,Distributors.value,Balance.value,Payments.value,BillStatus.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Done
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+     
+      

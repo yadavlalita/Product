@@ -1,0 +1,156 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4"> Name</label>
+        <input type="text" class="form-control" 
+          formControlName="Name" 
+          #Name />
+      </div>
+      <div *ngIf="angForm.controls['Name'].invalid && (angForm.controls['Name'].dirty || angForm.controls['Name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Name'].errors.required">
+           Name is required.
+        </div>
+      </div>
+       <div class="form-group">
+        <label class="col-md-4">Email</label>
+        <input type="text" class="form-control" 
+          formControlName="Email" 
+          #Email />
+      </div>
+      <div *ngIf="angForm.controls['Email'].invalid && (angForm.controls['Email'].dirty || angForm.controls['Email'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Email'].errors.required">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">ContactNo</label>
+        <input type="text" class="form-control" 
+          formControlName="ContactNo" 
+          #ContactNo />
+      </div>
+      <div *ngIf="angForm.controls['ContactNo'].invalid && (angForm.controls['ContactNo'].dirty || angForm.controls['ContactNo'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ContactNo'].errors.required">
+          ContactNo is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"> Address</label>
+        <input type="text" class="form-control" 
+          formControlName="Address" 
+          #Address />
+      </div>
+      <div *ngIf="angForm.controls['Address'].invalid && (angForm.controls['Address'].dirty || angForm.controls['Address'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Address'].errors.required">
+          Address is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">City</label>
+        <input type="text" class="form-control" 
+          formControlName="City" 
+          #City/>
+      </div>
+      <div *ngIf="angForm.controls['City'].invalid && (angForm.controls['City'].dirty || angForm.controls['City'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['City'].errors.required">
+          City is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">State</label>
+        <input type="text" class="form-control" 
+          formControlName="State" 
+          #State />
+      </div>
+      <div *ngIf="angForm.controls['State'].invalid && (angForm.controls['State'].dirty || angForm.controls['State'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['State'].errors.required">
+          State is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Country</label>
+        <select name="Country"
+        ng-model="data.Country" class="form-control" 
+        formControlName="Country" 
+        #Country>
+      <option value="India">India
+      </option>
+      <option value="UK">UK
+      </option>
+      <option value="Brajil">Brajil
+      </option>
+      <option value="France">France</option>
+      </select>
+      </div>
+      <div *ngIf="angForm.controls['Country'].invalid && (angForm.controls['Country'].dirty || angForm.controls['Country'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Country'].errors.required">
+          Country is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Shipping Address</label>
+        <input type="text" class="form-control" 
+          formControlName="ShippingAddress" 
+          #ShippingAddress />
+      </div>
+      <div *ngIf="angForm.controls['ShippingAddress'].invalid && (angForm.controls['ShippingAddress'].dirty || angForm.controls['ShippingAddress'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ShippingAddress'].errors.required">
+          ShippingAddress is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"> Products
+        </label>
+        <select name="Products"
+        ng-model="data.Products" class="form-control" 
+        formControlName="Products" 
+        #Products>
+      <option value="MungDall">MungDall
+      </option>
+     
+      <option value="T.V">T.V</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Products'].invalid && (angForm.controls['Products'].dirty || angForm.controls['Products'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Products'].errors.required">
+          Products is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Qty</label>
+        <input type="number" class="form-control" 
+          formControlName="Qty" 
+          #Qty />
+      </div>
+      <div *ngIf="angForm.controls['Qty'].invalid && (angForm.controls['Qty'].dirty || angForm.controls['Qty'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Qty'].errors.required">
+          Qty is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">  Payment Method
+        </label>
+        <select name="Payment"
+        ng-model="data.Payment" class="form-control" 
+        formControlName="Payment" 
+        #Payment>
+      <option value="Debit or Credit">Debit or Credit
+      </option>
+     
+      <option value="PayTm">PayTm</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Payment'].invalid && (angForm.controls['Payment'].dirty || angForm.controls['Payment'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Payment'].errors.required">
+          Payment is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "addorder(Name.value,Email.value,ContactNo.value,Address.value,City.value,State.value,Country.value,ShippingAddress.value,Products.value,Qty.value,Payment.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+         Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

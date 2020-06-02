@@ -1,0 +1,116 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Enter Barcode</label>
+        <select name="Barcode"
+        ng-model="data.Barcode" class="form-control" 
+        formControlName="Barcode" 
+        #Barcode>
+        <option value="Dall">Dall
+        </option>
+        <option value="Meal">Meal
+        </option>
+        <option value="Cosmetic">Cosmetic
+        </option>
+        <option value="Cutelery">Cutelery</option>
+      </select>
+      </div>
+      <div *ngIf="angForm.controls['Barcode'].invalid && (angForm.controls['Barcode'].dirty || angForm.controls['Barcode'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Barcode'].errors.required">
+          Barcode is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Product Category</label>
+        <select name="ProductCategory"
+        ng-model="data.ProductCategory" class="form-control" 
+        formControlName="ProductCategory" 
+        #ProductCategory>
+        <option value="Dall">Dall
+        </option>
+        <option value="Meal">Meal
+        </option>
+        <option value="Cosmetic">Cosmetic
+        </option>
+        <option value="Cutelery">Cutelery</option>
+      </select>
+      </div>
+      <div *ngIf="angForm.controls['ProductCategory'].invalid && (angForm.controls['ProductCategory'].dirty || angForm.controls['ProductCategory'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ProductCategory'].errors.required">
+          Product Category is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Enter Name </label>
+        <input type="text" class="form-control" 
+        formControlName="Name" 
+        #Name/>
+      </div>
+      <div *ngIf="angForm.controls['Name'].invalid && (angForm.controls['Name'].dirty || angForm.controls['Name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Name'].errors.required">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Select Distributors</label>
+        <select name="Distributor"
+        ng-model="data.Distributor" class="form-control" 
+        formControlName="Distributor" 
+        #Distributor>
+        
+        <option value="ABC">ABC
+        </option>
+        <option value="PQR">PQR</option>
+        <option value="XYZ">XYZ</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Distributor'].invalid && (angForm.controls['Distributor'].dirty || angForm.controls['Distributor'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Distributor'].errors.required">
+          distributor is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label class="col-md-4">GST Tax</label>
+        <input type="number" class="form-control" 
+          formControlName="GST" 
+          #GST />
+      </div>
+      <div *ngIf="angForm.controls['GST'].invalid && (angForm.controls['GST'].dirty || angForm.controls['GST'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['GST'].errors.required">
+          GST Tax is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">MRP</label>
+        <input type="text" class="form-control" 
+          formControlName="MRP" 
+          #MRP />
+      </div>
+      <div *ngIf="angForm.controls['MRP'].invalid && (angForm.controls['MRP'].dirty || angForm.controls['MRP'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['MRP'].errors.required">
+          MRP is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">ExpiryDate</label>
+        <input type="text" class="form-control" 
+        formControlName="ExpiryDate" 
+        #ExpiryDate />
+    </div>
+    <div *ngIf="angForm.controls['ExpiryDate'].invalid && (angForm.controls['ExpiryDate'].dirty || angForm.controls['ExpiryDate'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['ExpiryDate'].errors.required">
+          ExpiryDate is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "updateProduct(Barcode.value,ProductCategory.value,Name.value,Distributor.value,GST.value,MRP.value,ExpiryDate.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Create Product
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

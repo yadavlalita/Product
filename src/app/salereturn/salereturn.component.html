@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Enter Bill No</label>
+        <input type="text" class="form-control" 
+          formControlName="BillNumber" 
+          #BillNumber />
+      </div>
+      <div *ngIf="angForm.controls['BillNumber'].invalid && (angForm.controls['BillNumber'].dirty || angForm.controls['BillNumber'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['BillNumber'].errors.required">
+          BillNumber is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Enter Barcode-Master Code</label>
+        <select name="Barcode"
+        ng-model="data.Barcode" class="form-control" 
+        formControlName="Barcode" 
+        #Barcode>
+      <option value="188-A">188-A</option>
+      <option value="163-N">163-N</option>
+      <option value="56-P">56-P</option>
+      </select> 
+      </div>
+      <div *ngIf="angForm.controls['Barcode'].invalid && (angForm.controls['Barcode'].dirty || angForm.controls['Barcode'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Barcode'].errors.required">
+          Barcode is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">MRP</label>
+        <input type="text" class="form-control" 
+          formControlName="MRP" 
+          #MRP />
+      </div>
+      <div *ngIf="angForm.controls['MRP'].invalid && (angForm.controls['MRP'].dirty || angForm.controls['MRP'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['MRP'].errors.required">
+          MRP is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Qty</label>
+        <input type="number" class="form-control" 
+          formControlName="Qty" 
+          #Qty />
+      </div>
+      <div *ngIf="angForm.controls['Qty'].invalid && (angForm.controls['Qty'].dirty || angForm.controls['Qty'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Qty'].errors.required">
+          Qty is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <button (click) = "addsalereturn(BillNumber.value,Barcode.value,MRP.value,Qty.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Done
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+     
+      
+     
+      

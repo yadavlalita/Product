@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4"> StaffName</label>
+        <input type="text" class="form-control" 
+          formControlName="Staff" 
+          #StaffName />
+      </div>
+      <div *ngIf="angForm.controls['StaffName'].invalid && (angForm.controls['StaffName'].dirty || angForm.controls['StaffName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['StaffName'].errors.required">
+          Staff Name is required.
+        </div>
+      </div>
+       <div class="form-group">
+        <label class="col-md-4">Email</label>
+        <input type="text" class="form-control" 
+          formControlName="Email" 
+          #Email />
+      </div>
+      <div *ngIf="angForm.controls['Email'].invalid && (angForm.controls['Email'].dirty || angForm.controls['Email'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Email'].errors.required">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">ContactNo</label>
+        <input type="text" class="form-control" 
+          formControlName="ContactNo" 
+          #ContactNo />
+      </div>
+      <div *ngIf="angForm.controls['ContactNo'].invalid && (angForm.controls['ContactNo'].dirty || angForm.controls['ContactNo'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ContactNo'].errors.required">
+          ContactNo is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">State</label>
+        <input type="text" class="form-control" 
+          formControlName="State" 
+          #State />
+      </div>
+      <div *ngIf="angForm.controls['State'].invalid && (angForm.controls['State'].dirty || angForm.controls['State'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['State'].errors.required">
+          State is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">DOB</label>
+        <input type="date" class="form-control" 
+          formControlName="DOB" 
+          #DOB />
+      </div>
+      <div *ngIf="angForm.controls['DOB'].invalid && (angForm.controls['DOB'].dirty || angForm.controls['DOB'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['DOB'].errors.required">
+          DOB is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "updateStaff(StaffName.value,Email.value,ContactNo.value,State.value,DOB.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Update Staff
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+     
+      
+     
+      

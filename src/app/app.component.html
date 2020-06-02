@@ -1,0 +1,32 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" >
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="products">Home</a>
+        <a class="nav-item nav-link" routerLink="product/create">Create Product</a>
+        <a class="nav-item nav-link" routerLink="products">Product</a>
+        <a class="nav-item nav-link" routerLink="customer/create">Add Customer</a>
+        <a class="nav-item nav-link" routerLink="customers">Customer</a>
+        <a class="nav-item nav-link" routerLink="staff/create">Add Staff</a>
+        <a class="nav-item nav-link" routerLink="staffs">Staff</a>
+        <a class="nav-item nav-link" routerLink="create/user">Add Product Purchase Entry</a>
+        <a class="nav-item nav-link" routerLink="sale">Add Product Sale Entry</a>
+        <a class="nav-item nav-link" routerLink="Order">Order Entry</a>
+        <a class="nav-item nav-link" routerLink="payment">Payment to DIstributor</a>
+        <a class="nav-item nav-link" routerLink="create/account">Add Account Entry</a>
+        <a class="nav-item nav-link" routerLink="return">Purchase Return</a>
+        <a class="nav-item nav-link" routerLink="salereturn">Sale Return</a>
+        <a class="nav-item nav-link" routerLink="paymenttostaff">Payment to staff</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+       
+       
+    </div>
+</nav>
+
+
+<div class="container">
+    <router-outlet>
+       
+    </router-outlet>
+  </div>
+  
+ 

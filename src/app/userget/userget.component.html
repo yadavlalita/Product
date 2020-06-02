@@ -1,0 +1,30 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td> Distributor</td>
+      <td> Credit/Cash</td>
+      <td>Bill/ChallanDate</td>
+      <td> Bill/ChallanNo</td>
+      <td>Barcode</td>
+      <td>MRP</td>
+      <td>Qty</td>
+      <td>Amount</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let user of users">
+          <td>{{ user.Distributor }}</td>
+          <td>{{ user.Credit_Cash }}</td>
+          <td>{{ user.Bill_ChallanDate }}</td>
+          <td>{{ user.Bill_ChallanNo }}</td>
+          <td>{{ user.Barcode }}</td>
+          <td>{{ user.MRP }}</td>
+          <td>{{ user.Qty }}</td>
+          <td>{{ user.Amount }}</td>
+          <td><a [routerLink]="['/edit', user._id]" class="btn btn-primary">Edit</a></td>
+          <td><a (click) = "deleteuser(user._id)" class="btn btn-danger">Delete</a>
+      </tr>
+  </tbody>
+</table>

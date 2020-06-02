@@ -1,0 +1,93 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4"> Select Counter/Home Delivery
+        </label>
+        <select name="Counter_Home"
+        ng-model="data.Counter_Home" class="form-control" 
+        formControlName="Counter_Home" 
+        #Counter_Home>
+      <option value="Conter">Counter
+      </option>
+     
+      <option value="Home">Home</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Counter_Home'].invalid && (angForm.controls['Counter_Home'].dirty || angForm.controls['Counter_Home'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Counter_Home'].errors.required">
+          Counter_Home is required.
+        </div>
+      </div>
+        <div class="form-group">
+        <label class="col-md-4">SaleDate</label>
+        <input type="date" class="form-control" 
+          formControlName="SaleDate" 
+          #SaleDate />
+      </div>
+      <div *ngIf="angForm.controls['SaleDate'].invalid && (angForm.controls['SaleDate'].dirty || angForm.controls['SaleDate'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['SaleDate'].errors.required">
+          SaleDate is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"> Category
+        </label>
+        <select name="Category"
+        ng-model="data.Category" class="form-control" 
+        formControlName="Category" 
+        #Category>
+      <option value="Meal">Meal
+      </option>
+     
+      <option value="Electronic">Electronic</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Category'].invalid && (angForm.controls['Category'].dirty || angForm.controls['Category'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Category'].errors.required">
+          Category is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"> Products
+        </label>
+        <select name="Products"
+        ng-model="data.Products" class="form-control" 
+        formControlName="Products" 
+        #Products>
+      <option value="MungDall">MungDall
+      </option>
+     
+      <option value="T.V">T.V</option>
+      </select>   
+      </div>
+      <div *ngIf="angForm.controls['Products'].invalid && (angForm.controls['Products'].dirty || angForm.controls['Products'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Products'].errors.required">
+          Products is required.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-md-4">Amount</label>
+        <input type="text" class="form-control" 
+          formControlName="Amount" 
+          #Amount />
+      </div>
+      <div *ngIf="angForm.controls['Amount'].invalid && (angForm.controls['Amount'].dirty || angForm.controls['Amount'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Amount'].errors.required">
+          Amount is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "addsale(Counter_Home.value,SaleDate.value,Category.value,Products.value,Amount.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Done
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+     
+      
+     
+      
